@@ -15,6 +15,7 @@
 		8046A7781DCEB1B100B55F52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8046A7761DCEB1B100B55F52 /* LaunchScreen.storyboard */; };
 		8046A7831DCEB1B100B55F52 /* languageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046A7821DCEB1B100B55F52 /* languageTests.swift */; };
 		8046A78E1DCEB1B100B55F52 /* languageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046A78D1DCEB1B100B55F52 /* languageUITests.swift */; };
+		8046A79D1DCEC5BD00B55F52 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8046A79B1DCEC5BD00B55F52 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		8046A7891DCEB1B100B55F52 /* languageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = languageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8046A78D1DCEB1B100B55F52 /* languageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = languageUITests.swift; sourceTree = "<group>"; };
 		8046A78F1DCEB1B100B55F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8046A79C1DCEC5BD00B55F52 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		8046A75E1DCEB1B100B55F52 = {
 			isa = PBXGroup;
 			children = (
+				8046A79B1DCEC5BD00B55F52 /* Model.xcdatamodeld */,
 				8046A7691DCEB1B100B55F52 /* language */,
 				8046A7811DCEB1B100B55F52 /* languageTests */,
 				8046A78C1DCEB1B100B55F52 /* languageUITests */,
@@ -268,6 +271,7 @@
 				8046A76D1DCEB1B100B55F52 /* ViewController.swift in Sources */,
 				8046A7731DCEB1B100B55F52 /* language.xcdatamodeld in Sources */,
 				8046A76B1DCEB1B100B55F52 /* AppDelegate.swift in Sources */,
+				8046A79D1DCEC5BD00B55F52 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +547,16 @@
 			);
 			currentVersion = 8046A7721DCEB1B100B55F52 /* language.xcdatamodel */;
 			path = language.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		8046A79B1DCEC5BD00B55F52 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8046A79C1DCEC5BD00B55F52 /* Model.xcdatamodel */,
+			);
+			currentVersion = 8046A79C1DCEC5BD00B55F52 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
