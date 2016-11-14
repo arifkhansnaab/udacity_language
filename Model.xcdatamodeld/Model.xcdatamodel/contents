@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" syncable="YES"/>
+        <attribute name="authenticationMode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loginId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Words" syncable="YES"/>
     </entity>
-    <entity name="Word" representedClassName="Word" syncable="YES" codeGenerationType="class">
-        <attribute name="convertedImage" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="englishSentence" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="UserLog" representedClassName="UserLog" syncable="YES" codeGenerationType="class">
+        <attribute name="loginDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="loginId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="UserWords" representedClassName="UserWords" syncable="YES" codeGenerationType="class">
+        <attribute name="lastTouched" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="learningStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="loginId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Words" representedClassName="Words" syncable="YES" codeGenerationType="class">
+        <attribute name="convertedLanguageWord" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="convertedRomanWord" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sourceWord" optional="YES" attributeType="String" minValueString="2" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-56" positionY="-192" width="128" height="75"/>
-        <element name="Word" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="User" positionX="-56" positionY="-192" width="128" height="105"/>
+        <element name="Words" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="UserLog" positionX="-63" positionY="-72" width="128" height="75"/>
+        <element name="UserWords" positionX="-54" positionY="-63" width="128" height="105"/>
     </elements>
 </model>

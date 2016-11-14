@@ -11,11 +11,14 @@ import UIKit
 
 class WordTableViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let data:[[String]] = [["What's going on","Always Respect your elders", "Glasses"],
+    let data:[[String]] = [["What's going on","Always respect your elders", "Glasses"],
                            ["Book","Camel", "Cat"]]
     
     let subs:[[String]] = [["3. 10/31/2016","3. 10/31/2016", "3. 10/31/2016"],
                            ["1. 10/03/2016","1. 10/03/2016", "1. 10/03/2016"]]
+    
+    let translatedData:[[String]] = [["aap kia kar rahi hain","hamesha apni baro ka adab ke je aya", "aenak"],
+                                     ["kitab", "ont", "billi"]]
     
     let headers:[String] = ["New", "Known"]
     
@@ -44,10 +47,16 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(data[indexPath.section][indexPath.row])")
+        
+        let value = data[indexPath.section][indexPath.row]
+        print("\(value)")
+        let translatedData = self.translatedData[indexPath.section][indexPath.row]
         
         //in case of no deletion, select pin and navigate to show pictures
         let oViewController = storyboard!.instantiateViewController(withIdentifier: "WordTranslationViewController") as! WordTranslationViewController
+        
+        oViewController.sourceSentense = value
+        oViewController.translatedSentence = translatedData
        
         navigationController!.pushViewController(oViewController, animated: true)
     }

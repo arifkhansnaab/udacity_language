@@ -13,6 +13,6 @@ extension UITextField {
     func setPreferences() {
         self.layer.cornerRadius = 8
         self.layer.borderColor = UIColor.gray.cgColor
-        self.layer.borderWidth = 2
+        self.layer.borderWidth = 0.5
     }
 }

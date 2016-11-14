@@ -20,8 +20,9 @@
 		8046A79D1DCEC5BD00B55F52 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8046A79B1DCEC5BD00B55F52 /* Model.xcdatamodeld */; };
 		8061CB7B1DD7666D00481747 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */; };
 		8061CB7D1DD7677A00481747 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7C1DD7677A00481747 /* Utility.swift */; };
-		8061CB7F1DD76F6600481747 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7E1DD76F6600481747 /* UIButton.swift */; };
+		8061CB7F1DD76F6600481747 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7E1DD76F6600481747 /* UIButtonExtension.swift */; };
 		8061CB811DD7722300481747 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB801DD7722300481747 /* DashboardViewController.swift */; };
+		80B912FB1DD9276F0016F887 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B912FA1DD9276F0016F887 /* RegisterUserViewController.swift */; };
 		80F964B61DD4190700C0F1FB /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F964B51DD4190700C0F1FB /* WordTableViewController.swift */; };
 		80F964B81DD57D1800C0F1FB /* WordTranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +49,7 @@
 		800C12941DD1803A00743458 /* FlickrApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrApi.swift; sourceTree = "<group>"; };
 		8046A7671DCEB1B100B55F52 /* language.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = language.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8046A76A1DCEB1B100B55F52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8046A76C1DCEB1B100B55F52 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8046A76C1DCEB1B100B55F52 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = language/LoginViewController.swift; sourceTree = "<group>"; };
 		8046A76F1DCEB1B100B55F52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8046A7721DCEB1B100B55F52 /* language.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = language.xcdatamodel; sourceTree = "<group>"; };
 		8046A7741DCEB1B100B55F52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,12 +62,13 @@
 		8046A78D1DCEB1B100B55F52 /* languageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = languageUITests.swift; sourceTree = "<group>"; };
 		8046A78F1DCEB1B100B55F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8046A79C1DCEC5BD00B55F52 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtension.swift; path = language/UITextFieldExtension.swift; sourceTree = "<group>"; };
 		8061CB7C1DD7677A00481747 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = language/Utility.swift; sourceTree = "<group>"; };
-		8061CB7E1DD76F6600481747 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		8061CB801DD7722300481747 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		80F964B51DD4190700C0F1FB /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
-		80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTranslationViewController.swift; sourceTree = "<group>"; };
+		8061CB7E1DD76F6600481747 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonExtension.swift; path = language/UIButtonExtension.swift; sourceTree = "<group>"; };
+		8061CB801DD7722300481747 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = language/DashboardViewController.swift; sourceTree = "<group>"; };
+		80B912FA1DD9276F0016F887 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		80F964B51DD4190700C0F1FB /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordTableViewController.swift; path = language/WordTableViewController.swift; sourceTree = "<group>"; };
+		80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordTranslationViewController.swift; path = language/WordTranslationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,8 @@
 		8046A75E1DCEB1B100B55F52 = {
 			isa = PBXGroup;
 			children = (
+				80DABDA11DD81700009ABFF4 /* Interface */,
+				80DABDA01DD8110F009ABFF4 /* ViewController */,
 				8061CB821DD7BC8700481747 /* Utility */,
 				800C12931DD1801D00743458 /* Api */,
 				8046A79E1DD179D400B55F52 /* Model */,
@@ -129,17 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				8046A76A1DCEB1B100B55F52 /* AppDelegate.swift */,
-				8046A76C1DCEB1B100B55F52 /* LoginViewController.swift */,
-				8046A76E1DCEB1B100B55F52 /* Main.storyboard */,
 				8046A7741DCEB1B100B55F52 /* Assets.xcassets */,
-				8046A7761DCEB1B100B55F52 /* LaunchScreen.storyboard */,
 				8046A7791DCEB1B100B55F52 /* Info.plist */,
 				8046A7711DCEB1B100B55F52 /* language.xcdatamodeld */,
-				80F964B51DD4190700C0F1FB /* WordTableViewController.swift */,
-				80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */,
-				8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */,
-				8061CB7E1DD76F6600481747 /* UIButton.swift */,
-				8061CB801DD7722300481747 /* DashboardViewController.swift */,
 			);
 			path = language;
 			sourceTree = "<group>";
@@ -174,9 +170,32 @@
 		8061CB821DD7BC8700481747 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */,
+				8061CB7E1DD76F6600481747 /* UIButtonExtension.swift */,
 				8061CB7C1DD7677A00481747 /* Utility.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		80DABDA01DD8110F009ABFF4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */,
+				8061CB801DD7722300481747 /* DashboardViewController.swift */,
+				8046A76C1DCEB1B100B55F52 /* LoginViewController.swift */,
+				80F964B51DD4190700C0F1FB /* WordTableViewController.swift */,
+				80B912FA1DD9276F0016F887 /* RegisterUserViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		80DABDA11DD81700009ABFF4 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8046A7761DCEB1B100B55F52 /* LaunchScreen.storyboard */,
+				8046A76E1DCEB1B100B55F52 /* Main.storyboard */,
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,7 +344,8 @@
 				80F964B61DD4190700C0F1FB /* WordTableViewController.swift in Sources */,
 				8061CB811DD7722300481747 /* DashboardViewController.swift in Sources */,
 				800C12921DD17F8A00743458 /* CoreDataStackManager.swift in Sources */,
-				8061CB7F1DD76F6600481747 /* UIButton.swift in Sources */,
+				80B912FB1DD9276F0016F887 /* RegisterUserViewController.swift in Sources */,
+				8061CB7F1DD76F6600481747 /* UIButtonExtension.swift in Sources */,
 				8046A79D1DCEC5BD00B55F52 /* Model.xcdatamodeld in Sources */,
 				800C12951DD1803A00743458 /* FlickrApi.swift in Sources */,
 			);
@@ -369,6 +389,7 @@
 				8046A76F1DCEB1B100B55F52 /* Base */,
 			);
 			name = Main.storyboard;
+			path = language;
 			sourceTree = "<group>";
 		};
 		8046A7761DCEB1B100B55F52 /* LaunchScreen.storyboard */ = {
@@ -377,6 +398,7 @@
 				8046A7771DCEB1B100B55F52 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = language;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
