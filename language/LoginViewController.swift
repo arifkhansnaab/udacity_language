@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: UIViewController {
 
@@ -31,9 +32,26 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButton(_ sender: Any) {
-        let oViewController = storyboard!.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+        let oUser = searchUser(login: userTextField.text!,password: passwordTextField.text!)
         
-        navigationController!.pushViewController(oViewController, animated: true)
+        if ( oUser == nil ) {
+            let alert = UIAlertController(title: "Alert", message: "User login failure - invalid login / password", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                //do nothing
+            }
+            
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            
+            UserManager.AddLogedInUser(loginId: userTextField.text!)
+            
+            let oViewController = storyboard!.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+            navigationController!.pushViewController(oViewController, animated: true)
+        }
     }
     
     
@@ -48,6 +66,20 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func searchUser(login: String, password: String) -> User? {
+        let context = CoreDataStackManager.sharedInstance().managedObjectContext!
+        let user = NSFetchRequest<User>(entityName: "User")
+        let searchQuery = NSPredicate(format: "loginId = %@ AND password = %@", argumentArray: [login, password])
+        user.predicate = searchQuery
+        
+        if let result = try? context.fetch(user) {
+            for object in result {
+                return (object as User)
+            }
+        }
+        return nil
     }
 
     func setColorsAndBorders() {

@@ -8,13 +8,15 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class RegisterUserViewController: UIViewController {
+class RegisterUserViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate {
     
     var myTextFields = [UITextField]()
     var myButtons = [UIButton]()
     
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var displayNameTextBox: UITextField!
     @IBOutlet weak var lastNameTextBox: UITextField!
     @IBOutlet weak var firstNameTextBox: UITextField!
@@ -28,14 +30,65 @@ class RegisterUserViewController: UIViewController {
         
         setColorsAndBorders()
         
+        //Set the text field delegate, so that return key bring down the keyboard
+        loginTextBox.delegate = self
+        passwordTextBox.delegate = self
+        reenterPasswordTextBox.delegate = self
+        firstNameTextBox.delegate = self
+        lastNameTextBox.delegate = self
+        displayNameTextBox.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+    }
+    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func registerUser(_ sender: Any) {
+        
+        let context = CoreDataStackManager.sharedInstance().managedObjectContext!
+        
+        if ( passwordTextBox.text?.characters.count == 0 ) {
+            errorLabel.text = "password cannot be empty"
+            return
+        }
+        
+        if ( passwordTextBox.text != reenterPasswordTextBox.text) {
+            errorLabel.text = "password and re-enter password do not match"
+            return
+        }
+        
+        _ = User(login: loginTextBox.text!, pass: passwordTextBox.text!, first: firstNameTextBox.text!, last: lastNameTextBox.text!, display: displayNameTextBox.text!, mode: authenticationStatus.custom, context: context)
+        
+        do {
+            try context.save()
+            
+            let alert = UIAlertController(title: "Alert", message: "User registered successfully", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                
+                let oViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                self.navigationController!.pushViewController(oViewController, animated: true)
+            }
+            
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        } catch let error as NSError {
+            print (error)
+        }
+        
+    }
+    
+    func registerUser() {
     }
     
     func setColorsAndBorders() {
@@ -50,4 +103,38 @@ class RegisterUserViewController: UIViewController {
             item.setPreferences()
         }
     }
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterUserViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterUserViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if (displayNameTextBox.isFirstResponder || lastNameTextBox.isFirstResponder) {
+            view.frame.origin.y = -getKeyboardHeight(notification: notification)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if (displayNameTextBox.isFirstResponder || lastNameTextBox.isFirstResponder){
+            view.frame.origin.y = 0
+        }
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }

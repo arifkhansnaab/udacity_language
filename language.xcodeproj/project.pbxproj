@@ -19,10 +19,23 @@
 		8046A78E1DCEB1B100B55F52 /* languageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046A78D1DCEB1B100B55F52 /* languageUITests.swift */; };
 		8046A79D1DCEC5BD00B55F52 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8046A79B1DCEC5BD00B55F52 /* Model.xcdatamodeld */; };
 		8061CB7B1DD7666D00481747 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */; };
-		8061CB7D1DD7677A00481747 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7C1DD7677A00481747 /* Utility.swift */; };
+		8061CB7D1DD7677A00481747 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7C1DD7677A00481747 /* Constants.swift */; };
 		8061CB7F1DD76F6600481747 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7E1DD76F6600481747 /* UIButtonExtension.swift */; };
 		8061CB811DD7722300481747 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB801DD7722300481747 /* DashboardViewController.swift */; };
+		807E96B81DDEC76B00D2AE93 /* UserLog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B01DDEC76B00D2AE93 /* UserLog+CoreDataClass.swift */; };
+		807E96B91DDEC76B00D2AE93 /* UserLog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B11DDEC76B00D2AE93 /* UserLog+CoreDataProperties.swift */; };
+		807E96BA1DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B21DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift */; };
+		807E96BB1DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B31DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift */; };
+		807E96BC1DDEC76B00D2AE93 /* Words+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B41DDEC76B00D2AE93 /* Words+CoreDataClass.swift */; };
+		807E96BD1DDEC76B00D2AE93 /* Words+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B51DDEC76B00D2AE93 /* Words+CoreDataProperties.swift */; };
+		807E96BE1DDEC76B00D2AE93 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B61DDEC76B00D2AE93 /* User+CoreDataClass.swift */; };
+		807E96BF1DDEC76B00D2AE93 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B71DDEC76B00D2AE93 /* User+CoreDataProperties.swift */; };
+		807E96C41DE09ED200D2AE93 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96C31DE09ED200D2AE93 /* UserManager.swift */; };
+		807E96C61DE0AB3900D2AE93 /* UtilityFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96C51DE0AB3900D2AE93 /* UtilityFunction.swift */; };
+		807E96C91DE0BA8B00D2AE93 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96C81DE0BA8B00D2AE93 /* CustomTableViewCell.swift */; };
 		80B912FB1DD9276F0016F887 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B912FA1DD9276F0016F887 /* RegisterUserViewController.swift */; };
+		80B912FD1DD971680016F887 /* AddNewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B912FC1DD971680016F887 /* AddNewWordViewController.swift */; };
+		80B913101DDA9C560016F887 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B9130F1DDA9C560016F887 /* CoreData.framework */; };
 		80F964B61DD4190700C0F1FB /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F964B51DD4190700C0F1FB /* WordTableViewController.swift */; };
 		80F964B81DD57D1800C0F1FB /* WordTranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -63,10 +76,23 @@
 		8046A78F1DCEB1B100B55F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8046A79C1DCEC5BD00B55F52 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtension.swift; path = language/UITextFieldExtension.swift; sourceTree = "<group>"; };
-		8061CB7C1DD7677A00481747 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = language/Utility.swift; sourceTree = "<group>"; };
+		8061CB7C1DD7677A00481747 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = language/Constants.swift; sourceTree = "<group>"; };
 		8061CB7E1DD76F6600481747 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonExtension.swift; path = language/UIButtonExtension.swift; sourceTree = "<group>"; };
 		8061CB801DD7722300481747 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = language/DashboardViewController.swift; sourceTree = "<group>"; };
+		807E96B01DDEC76B00D2AE93 /* UserLog+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserLog+CoreDataClass.swift"; sourceTree = "<group>"; };
+		807E96B11DDEC76B00D2AE93 /* UserLog+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserLog+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		807E96B21DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserWords+CoreDataClass.swift"; sourceTree = "<group>"; };
+		807E96B31DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserWords+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		807E96B41DDEC76B00D2AE93 /* Words+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Words+CoreDataClass.swift"; sourceTree = "<group>"; };
+		807E96B51DDEC76B00D2AE93 /* Words+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Words+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		807E96B61DDEC76B00D2AE93 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		807E96B71DDEC76B00D2AE93 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		807E96C31DE09ED200D2AE93 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		807E96C51DE0AB3900D2AE93 /* UtilityFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityFunction.swift; sourceTree = "<group>"; };
+		807E96C81DE0BA8B00D2AE93 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		80B912FA1DD9276F0016F887 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		80B912FC1DD971680016F887 /* AddNewWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewWordViewController.swift; sourceTree = "<group>"; };
+		80B9130F1DDA9C560016F887 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		80F964B51DD4190700C0F1FB /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordTableViewController.swift; path = language/WordTableViewController.swift; sourceTree = "<group>"; };
 		80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordTranslationViewController.swift; path = language/WordTranslationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B913101DDA9C560016F887 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +134,9 @@
 		8046A75E1DCEB1B100B55F52 = {
 			isa = PBXGroup;
 			children = (
+				807E96C71DE0BA6900D2AE93 /* View */,
+				807E96C21DE09C2F00D2AE93 /* HelperClasses */,
+				80B913391DDA9FE10016F887 /* DataAccess */,
 				80DABDA11DD81700009ABFF4 /* Interface */,
 				80DABDA01DD8110F009ABFF4 /* ViewController */,
 				8061CB821DD7BC8700481747 /* Utility */,
@@ -116,6 +146,7 @@
 				8046A7811DCEB1B100B55F52 /* languageTests */,
 				8046A78C1DCEB1B100B55F52 /* languageUITests */,
 				8046A7681DCEB1B100B55F52 /* Products */,
+				80B9130E1DDA9C560016F887 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +192,14 @@
 		8046A79E1DD179D400B55F52 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				807E96B01DDEC76B00D2AE93 /* UserLog+CoreDataClass.swift */,
+				807E96B11DDEC76B00D2AE93 /* UserLog+CoreDataProperties.swift */,
+				807E96B21DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift */,
+				807E96B31DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift */,
+				807E96B41DDEC76B00D2AE93 /* Words+CoreDataClass.swift */,
+				807E96B51DDEC76B00D2AE93 /* Words+CoreDataProperties.swift */,
+				807E96B61DDEC76B00D2AE93 /* User+CoreDataClass.swift */,
+				807E96B71DDEC76B00D2AE93 /* User+CoreDataProperties.swift */,
 				8046A79B1DCEC5BD00B55F52 /* Model.xcdatamodeld */,
 				800C12911DD17F8A00743458 /* CoreDataStackManager.swift */,
 			);
@@ -172,9 +211,41 @@
 			children = (
 				8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */,
 				8061CB7E1DD76F6600481747 /* UIButtonExtension.swift */,
-				8061CB7C1DD7677A00481747 /* Utility.swift */,
+				8061CB7C1DD7677A00481747 /* Constants.swift */,
+				807E96C51DE0AB3900D2AE93 /* UtilityFunction.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		807E96C21DE09C2F00D2AE93 /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				807E96C31DE09ED200D2AE93 /* UserManager.swift */,
+			);
+			name = HelperClasses;
+			sourceTree = "<group>";
+		};
+		807E96C71DE0BA6900D2AE93 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				807E96C81DE0BA8B00D2AE93 /* CustomTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		80B9130E1DDA9C560016F887 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80B9130F1DDA9C560016F887 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		80B913391DDA9FE10016F887 /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataAccess;
 			sourceTree = "<group>";
 		};
 		80DABDA01DD8110F009ABFF4 /* ViewController */ = {
@@ -185,6 +256,7 @@
 				8046A76C1DCEB1B100B55F52 /* LoginViewController.swift */,
 				80F964B51DD4190700C0F1FB /* WordTableViewController.swift */,
 				80B912FA1DD9276F0016F887 /* RegisterUserViewController.swift */,
+				80B912FC1DD971680016F887 /* AddNewWordViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -335,19 +407,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8061CB7D1DD7677A00481747 /* Utility.swift in Sources */,
+				8061CB7D1DD7677A00481747 /* Constants.swift in Sources */,
+				807E96C91DE0BA8B00D2AE93 /* CustomTableViewCell.swift in Sources */,
 				80F964B81DD57D1800C0F1FB /* WordTranslationViewController.swift in Sources */,
+				807E96C61DE0AB3900D2AE93 /* UtilityFunction.swift in Sources */,
 				8061CB7B1DD7666D00481747 /* UITextFieldExtension.swift in Sources */,
 				8046A76D1DCEB1B100B55F52 /* LoginViewController.swift in Sources */,
 				8046A7731DCEB1B100B55F52 /* language.xcdatamodeld in Sources */,
+				80B912FD1DD971680016F887 /* AddNewWordViewController.swift in Sources */,
+				807E96BB1DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift in Sources */,
+				807E96C41DE09ED200D2AE93 /* UserManager.swift in Sources */,
 				8046A76B1DCEB1B100B55F52 /* AppDelegate.swift in Sources */,
 				80F964B61DD4190700C0F1FB /* WordTableViewController.swift in Sources */,
 				8061CB811DD7722300481747 /* DashboardViewController.swift in Sources */,
+				807E96B81DDEC76B00D2AE93 /* UserLog+CoreDataClass.swift in Sources */,
 				800C12921DD17F8A00743458 /* CoreDataStackManager.swift in Sources */,
+				807E96BA1DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift in Sources */,
 				80B912FB1DD9276F0016F887 /* RegisterUserViewController.swift in Sources */,
 				8061CB7F1DD76F6600481747 /* UIButtonExtension.swift in Sources */,
 				8046A79D1DCEC5BD00B55F52 /* Model.xcdatamodeld in Sources */,
+				807E96BC1DDEC76B00D2AE93 /* Words+CoreDataClass.swift in Sources */,
+				807E96B91DDEC76B00D2AE93 /* UserLog+CoreDataProperties.swift in Sources */,
+				807E96BF1DDEC76B00D2AE93 /* User+CoreDataProperties.swift in Sources */,
 				800C12951DD1803A00743458 /* FlickrApi.swift in Sources */,
+				807E96BD1DDEC76B00D2AE93 /* Words+CoreDataProperties.swift in Sources */,
+				807E96BE1DDEC76B00D2AE93 /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

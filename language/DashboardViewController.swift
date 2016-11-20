@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class DashboardViewController:  UIViewController {
     
@@ -20,6 +21,14 @@ class DashboardViewController:  UIViewController {
     
     @IBOutlet weak var competeButton: UIButton!
     
+    @IBAction func addNewWord(_ sender: Any) {
+        
+        let oViewController = storyboard!.instantiateViewController(withIdentifier: "AddNewWordViewController") as! AddNewWordViewController
+        
+        navigationController!.pushViewController(oViewController, animated: true)
+        
+    }
+    @IBOutlet weak var addNewWordButton: UIButton!
     @IBAction func startTest(_ sender: Any) {
         //in case of no deletion, select pin and navigate to show pictures
         let oViewController = storyboard!.instantiateViewController(withIdentifier: "WordTableViewController") as! WordTableViewController
@@ -34,11 +43,39 @@ class DashboardViewController:  UIViewController {
         
         setColorsAndBorders()
         
+        totalWordTextField.isUserInteractionEnabled = false
+        totalWordTextField.text = getTotalWordCount().description
+        
+        knownWordsTextField.text = getMyWordCount(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.mastered).description
+        
+        percentTextField.text = UtilityFunction.getPercentKnownWords(totalWords: totalWordTextField.text!, knownWords: knownWordsTextField.text!)
+    }
+    
+    func getTotalWordCount() -> NSInteger {
+        let context = CoreDataStackManager.sharedInstance().managedObjectContext!
+        let word = NSFetchRequest<Words>(entityName: "Word")
+        if let result = try? context.fetch(word) {
+            return result.count
+        }
+        return 0
+    }
+    
+    func getMyWordCount(loginId: String, learningStatus: String? ) -> NSInteger {
+        let context = CoreDataStackManager.sharedInstance().managedObjectContext!
+        let userWords = NSFetchRequest<UserWords>(entityName: "UserWords")
+        
+        let searchQuery = NSPredicate(format: "loginId = %@ AND learningStatus = %@", argumentArray: [loginId, learningStatus])
+        userWords.predicate = searchQuery
+        
+        if let result = try? context.fetch(userWords) {
+            return result.count
+        }
+        return 0
     }
     
     func setColorsAndBorders() {
         myTextFields = [totalWordTextField,knownWordsTextField,percentTextField]
-        myButtons = [competeButton]
+        myButtons = [competeButton, addNewWordButton]
         
         for item in myTextFields {
             item.setPreferences()
