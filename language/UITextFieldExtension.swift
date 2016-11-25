@@ -11,8 +11,9 @@ import UIKit
 
 extension UITextField {
     func setPreferences() {
-        self.layer.cornerRadius = 8
-        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.cornerRadius = 3
+        self.layer.borderColor = UIColor(red: 0/255, green: 181/255, blue: 229/255, alpha: 1.0).cgColor
+
         self.layer.borderWidth = 0.5
         
         let memeTextAttributes = [

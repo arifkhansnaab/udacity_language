@@ -53,7 +53,7 @@ class AddNewWordViewController: UIViewController {
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
                 UIAlertAction in
                 
-                let oViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                let oViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController1
                 self.navigationController!.pushViewController(oViewController, animated: true)
             }
             

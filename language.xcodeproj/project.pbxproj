@@ -10,7 +10,7 @@
 		800C12921DD17F8A00743458 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C12911DD17F8A00743458 /* CoreDataStackManager.swift */; };
 		800C12951DD1803A00743458 /* FlickrApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C12941DD1803A00743458 /* FlickrApi.swift */; };
 		8046A76B1DCEB1B100B55F52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046A76A1DCEB1B100B55F52 /* AppDelegate.swift */; };
-		8046A76D1DCEB1B100B55F52 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046A76C1DCEB1B100B55F52 /* LoginViewController.swift */; };
+		8046A76D1DCEB1B100B55F52 /* LoginViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046A76C1DCEB1B100B55F52 /* LoginViewController1.swift */; };
 		8046A7701DCEB1B100B55F52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8046A76E1DCEB1B100B55F52 /* Main.storyboard */; };
 		8046A7731DCEB1B100B55F52 /* language.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8046A7711DCEB1B100B55F52 /* language.xcdatamodeld */; };
 		8046A7751DCEB1B100B55F52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8046A7741DCEB1B100B55F52 /* Assets.xcassets */; };
@@ -18,6 +18,12 @@
 		8046A7831DCEB1B100B55F52 /* languageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046A7821DCEB1B100B55F52 /* languageTests.swift */; };
 		8046A78E1DCEB1B100B55F52 /* languageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8046A78D1DCEB1B100B55F52 /* languageUITests.swift */; };
 		8046A79D1DCEC5BD00B55F52 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8046A79B1DCEC5BD00B55F52 /* Model.xcdatamodeld */; };
+		805BF2BA1DE7E1EE00BAB487 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770351DE7E03D0004F7CB /* Bolts.framework */; };
+		805BF2BB1DE7E1EE00BAB487 /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770351DE7E03D0004F7CB /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		805BF2BC1DE7E1EE00BAB487 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770361DE7E03D0004F7CB /* FBSDKCoreKit.framework */; };
+		805BF2BD1DE7E1EE00BAB487 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770361DE7E03D0004F7CB /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		805BF2BE1DE7E1EE00BAB487 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770371DE7E03D0004F7CB /* FBSDKLoginKit.framework */; };
+		805BF2BF1DE7E1EE00BAB487 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770371DE7E03D0004F7CB /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8061CB7B1DD7666D00481747 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */; };
 		8061CB7D1DD7677A00481747 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7C1DD7677A00481747 /* Constants.swift */; };
 		8061CB7F1DD76F6600481747 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7E1DD76F6600481747 /* UIButtonExtension.swift */; };
@@ -36,6 +42,13 @@
 		80B912FB1DD9276F0016F887 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B912FA1DD9276F0016F887 /* RegisterUserViewController.swift */; };
 		80B912FD1DD971680016F887 /* AddNewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B912FC1DD971680016F887 /* AddNewWordViewController.swift */; };
 		80B913101DDA9C560016F887 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B9130F1DDA9C560016F887 /* CoreData.framework */; };
+		80C770281DE739D70004F7CB /* UdacityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C770271DE739D70004F7CB /* UdacityModel.swift */; };
+		80C7702A1DE73A510004F7CB /* SessionAndParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C770291DE73A510004F7CB /* SessionAndParseModel.swift */; };
+		80C7702D1DE73ADE0004F7CB /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7702C1DE73ADE0004F7CB /* ErrorExtension.swift */; };
+		80C770381DE7E03D0004F7CB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770351DE7E03D0004F7CB /* Bolts.framework */; };
+		80C770391DE7E03D0004F7CB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770361DE7E03D0004F7CB /* FBSDKCoreKit.framework */; };
+		80C7703A1DE7E03D0004F7CB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770371DE7E03D0004F7CB /* FBSDKLoginKit.framework */; };
+		80CE6AAB1DE81BCF00C8D01E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE6AAA1DE81BCF00C8D01E /* LoginViewController.swift */; };
 		80F964B61DD4190700C0F1FB /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F964B51DD4190700C0F1FB /* WordTableViewController.swift */; };
 		80F964B81DD57D1800C0F1FB /* WordTranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -57,12 +70,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		80C770341DE7DE630004F7CB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				805BF2BB1DE7E1EE00BAB487 /* Bolts.framework in Embed Frameworks */,
+				805BF2BD1DE7E1EE00BAB487 /* FBSDKCoreKit.framework in Embed Frameworks */,
+				805BF2BF1DE7E1EE00BAB487 /* FBSDKLoginKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		800C12911DD17F8A00743458 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 		800C12941DD1803A00743458 /* FlickrApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrApi.swift; sourceTree = "<group>"; };
 		8046A7671DCEB1B100B55F52 /* language.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = language.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8046A76A1DCEB1B100B55F52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8046A76C1DCEB1B100B55F52 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = language/LoginViewController.swift; sourceTree = "<group>"; };
+		8046A76C1DCEB1B100B55F52 /* LoginViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController1.swift; path = language/LoginViewController1.swift; sourceTree = "<group>"; };
 		8046A76F1DCEB1B100B55F52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8046A7721DCEB1B100B55F52 /* language.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = language.xcdatamodel; sourceTree = "<group>"; };
 		8046A7741DCEB1B100B55F52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +122,15 @@
 		80B912FA1DD9276F0016F887 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		80B912FC1DD971680016F887 /* AddNewWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewWordViewController.swift; sourceTree = "<group>"; };
 		80B9130F1DDA9C560016F887 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		80C7701A1DE54DF40004F7CB /* language-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "language-Bridging-Header.h"; sourceTree = "<group>"; };
+		80C770261DE6B5270004F7CB /* language.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = language.entitlements; sourceTree = "<group>"; };
+		80C770271DE739D70004F7CB /* UdacityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityModel.swift; sourceTree = "<group>"; };
+		80C770291DE73A510004F7CB /* SessionAndParseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionAndParseModel.swift; sourceTree = "<group>"; };
+		80C7702C1DE73ADE0004F7CB /* ErrorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
+		80C770351DE7E03D0004F7CB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		80C770361DE7E03D0004F7CB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		80C770371DE7E03D0004F7CB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		80CE6AAA1DE81BCF00C8D01E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		80F964B51DD4190700C0F1FB /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordTableViewController.swift; path = language/WordTableViewController.swift; sourceTree = "<group>"; };
 		80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordTranslationViewController.swift; path = language/WordTranslationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,7 +140,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				805BF2BA1DE7E1EE00BAB487 /* Bolts.framework in Frameworks */,
+				805BF2BC1DE7E1EE00BAB487 /* FBSDKCoreKit.framework in Frameworks */,
+				80C770381DE7E03D0004F7CB /* Bolts.framework in Frameworks */,
+				80C770391DE7E03D0004F7CB /* FBSDKCoreKit.framework in Frameworks */,
+				805BF2BE1DE7E1EE00BAB487 /* FBSDKLoginKit.framework in Frameworks */,
 				80B913101DDA9C560016F887 /* CoreData.framework in Frameworks */,
+				80C7703A1DE7E03D0004F7CB /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +178,7 @@
 		8046A75E1DCEB1B100B55F52 = {
 			isa = PBXGroup;
 			children = (
+				80C7702B1DE73ABE0004F7CB /* Delegate */,
 				807E96C71DE0BA6900D2AE93 /* View */,
 				807E96C21DE09C2F00D2AE93 /* HelperClasses */,
 				80B913391DDA9FE10016F887 /* DataAccess */,
@@ -163,6 +208,7 @@
 		8046A7691DCEB1B100B55F52 /* language */ = {
 			isa = PBXGroup;
 			children = (
+				80C770261DE6B5270004F7CB /* language.entitlements */,
 				8046A76A1DCEB1B100B55F52 /* AppDelegate.swift */,
 				8046A7741DCEB1B100B55F52 /* Assets.xcassets */,
 				8046A7791DCEB1B100B55F52 /* Info.plist */,
@@ -202,6 +248,8 @@
 				807E96B71DDEC76B00D2AE93 /* User+CoreDataProperties.swift */,
 				8046A79B1DCEC5BD00B55F52 /* Model.xcdatamodeld */,
 				800C12911DD17F8A00743458 /* CoreDataStackManager.swift */,
+				80C770271DE739D70004F7CB /* UdacityModel.swift */,
+				80C770291DE73A510004F7CB /* SessionAndParseModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -229,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				807E96C81DE0BA8B00D2AE93 /* CustomTableViewCell.swift */,
+				80C7701A1DE54DF40004F7CB /* language-Bridging-Header.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -236,6 +285,9 @@
 		80B9130E1DDA9C560016F887 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				80C770351DE7E03D0004F7CB /* Bolts.framework */,
+				80C770361DE7E03D0004F7CB /* FBSDKCoreKit.framework */,
+				80C770371DE7E03D0004F7CB /* FBSDKLoginKit.framework */,
 				80B9130F1DDA9C560016F887 /* CoreData.framework */,
 			);
 			name = Frameworks;
@@ -248,15 +300,24 @@
 			name = DataAccess;
 			sourceTree = "<group>";
 		};
+		80C7702B1DE73ABE0004F7CB /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				80C7702C1DE73ADE0004F7CB /* ErrorExtension.swift */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
 		80DABDA01DD8110F009ABFF4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */,
 				8061CB801DD7722300481747 /* DashboardViewController.swift */,
-				8046A76C1DCEB1B100B55F52 /* LoginViewController.swift */,
+				8046A76C1DCEB1B100B55F52 /* LoginViewController1.swift */,
 				80F964B51DD4190700C0F1FB /* WordTableViewController.swift */,
 				80B912FA1DD9276F0016F887 /* RegisterUserViewController.swift */,
 				80B912FC1DD971680016F887 /* AddNewWordViewController.swift */,
+				80CE6AAA1DE81BCF00C8D01E /* LoginViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -280,6 +341,7 @@
 				8046A7631DCEB1B100B55F52 /* Sources */,
 				8046A7641DCEB1B100B55F52 /* Frameworks */,
 				8046A7651DCEB1B100B55F52 /* Resources */,
+				80C770341DE7DE630004F7CB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -339,7 +401,13 @@
 					8046A7661DCEB1B100B55F52 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = GJT8TMHRBN;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					8046A77D1DCEB1B100B55F52 = {
 						CreatedOnToolsVersion = 8.1;
@@ -412,16 +480,20 @@
 				80F964B81DD57D1800C0F1FB /* WordTranslationViewController.swift in Sources */,
 				807E96C61DE0AB3900D2AE93 /* UtilityFunction.swift in Sources */,
 				8061CB7B1DD7666D00481747 /* UITextFieldExtension.swift in Sources */,
-				8046A76D1DCEB1B100B55F52 /* LoginViewController.swift in Sources */,
+				80CE6AAB1DE81BCF00C8D01E /* LoginViewController.swift in Sources */,
+				8046A76D1DCEB1B100B55F52 /* LoginViewController1.swift in Sources */,
 				8046A7731DCEB1B100B55F52 /* language.xcdatamodeld in Sources */,
 				80B912FD1DD971680016F887 /* AddNewWordViewController.swift in Sources */,
 				807E96BB1DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift in Sources */,
 				807E96C41DE09ED200D2AE93 /* UserManager.swift in Sources */,
 				8046A76B1DCEB1B100B55F52 /* AppDelegate.swift in Sources */,
+				80C770281DE739D70004F7CB /* UdacityModel.swift in Sources */,
+				80C7702D1DE73ADE0004F7CB /* ErrorExtension.swift in Sources */,
 				80F964B61DD4190700C0F1FB /* WordTableViewController.swift in Sources */,
 				8061CB811DD7722300481747 /* DashboardViewController.swift in Sources */,
 				807E96B81DDEC76B00D2AE93 /* UserLog+CoreDataClass.swift in Sources */,
 				800C12921DD17F8A00743458 /* CoreDataStackManager.swift in Sources */,
+				80C7702A1DE73A510004F7CB /* SessionAndParseModel.swift in Sources */,
 				807E96BA1DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift in Sources */,
 				80B912FB1DD9276F0016F887 /* RegisterUserViewController.swift in Sources */,
 				8061CB7F1DD76F6600481747 /* UIButtonExtension.swift in Sources */,
@@ -583,11 +655,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = language/language.entitlements;
 				DEVELOPMENT_TEAM = GJT8TMHRBN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = language/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snnab.language;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "language-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -596,11 +677,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = language/language.entitlements;
 				DEVELOPMENT_TEAM = GJT8TMHRBN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = language/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snnab.language;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "language-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

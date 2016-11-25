@@ -19,6 +19,8 @@ class WordTranslationViewController:  UIViewController {
     var sourceSentense : String = ""
     var translatedSentence : String = ""
     
+    var wordTryCount = 0
+    
     @IBOutlet weak var translatedLabel: UILabel!
     @IBOutlet weak var wrongLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
@@ -29,8 +31,14 @@ class WordTranslationViewController:  UIViewController {
             rightLabel.isHidden = false
             wrongLabel.isHidden = true
             translatedLabel.isHidden = true
-            updateMyWordStatus(word: sourceSentense, wordLearningStatus: wordLearningStatus.mastered)
+            
+            if wordTryCount > 0 {
+                updateMyWordStatus(word: sourceSentense, wordLearningStatus: wordLearningStatus.shaky)
+            } else {
+               updateMyWordStatus(word: sourceSentense, wordLearningStatus: wordLearningStatus.mastered)
+            }
         } else {
+            wordTryCount += 1
             rightLabel.isHidden = true
             wrongLabel.isHidden = false
             translatedLabel.isHidden = false

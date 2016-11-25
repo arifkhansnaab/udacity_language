@@ -46,10 +46,23 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.section][indexPath.row]
         
-        cell.textLabel?.text = getMyWord(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.unknown, position: indexPath.row)
+        if ( indexPath.section == 0 ) {
+            cell.textLabel?.text = getMyWord(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.unknown, position: indexPath.row)
         
-        cell.detailTextLabel?.text = getMyWordNote(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.unknown, position: indexPath.row)
+            cell.detailTextLabel?.text = getMyWordNote(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.unknown, position: indexPath.row)
+        } else {
+            cell.textLabel?.text = getMyWord(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.shaky, position: indexPath.row)
+            
+            cell.detailTextLabel?.text = getMyWordNote(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.shaky, position: indexPath.row)
+        }
         return cell
+    }
+    
+     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
+        header.contentView.backgroundColor = UIColor(red: 0/255, green: 181/255, blue: 229/255, alpha: 1.0) //make the background color light blue
+        header.textLabel?.textColor = UIColor.white //make the text white
+        header.alpha = 0.5 //make the header transparent
     }
     
     func getMyWordCount(loginId: String, learningStatus: String? ) -> NSInteger {
@@ -124,7 +137,7 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
         let context = CoreDataStackManager.sharedInstance().managedObjectContext!
         let userWords = NSFetchRequest<UserWords>(entityName: "UserWords")
         
-        let count = 0
+        var count = 0
         
         let searchQuery = NSPredicate(format: "loginId = %@ AND learningStatus = %@", argumentArray: [loginId, learningStatus])
         userWords.predicate = searchQuery
@@ -135,6 +148,7 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
                 if ( count == position ) {
                     return (object as UserWords).word
                 }
+                count += 1
             }
         }
         return nil
