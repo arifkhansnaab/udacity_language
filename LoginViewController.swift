@@ -15,7 +15,8 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
     static let sheredInstance = LogInViewController()
     
     var session: URLSession!
-    
+    var myTextFields = [UITextField]()
+    var myButtons = [UIButton]()
     
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -38,7 +39,7 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
         
         if (FBSDKAccessToken.current() != nil)
         {
-            returnUserData()
+            
             let loginManager = FBSDKLoginManager()
             FBSDKLoginManager.logOut(loginManager)()
         }
@@ -49,6 +50,20 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
             FBSDKProfile.enableUpdates(onAccessTokenChange: true)
             
         }
+        
+        setColorsAndBorders()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        print ("I am back here and now should continue")
+        
+        if (FBSDKAccessToken.current() != nil) {
+            returnUserData()
+        }
+        
+        return super.viewDidAppear(animated)
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -120,11 +135,16 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
     }
     
     @IBAction func signUpButtonTouchUp(_ sender: UIButton) {
-        if let requestUrl = URL(string: "https://www.udacity.com/account/auth#!/signin") {
-            UIApplication.shared.openURL(requestUrl)
-        } else {
-            presentError("Error opening url: " + "https://www.udacity.com/account/auth#!/signin")
-        }
+      
+        let oViewController = storyboard!.instantiateViewController(withIdentifier: "RegisterUserViewController") as! RegisterUserViewController
+        
+        navigationController!.pushViewController(oViewController, animated: true)
+
+        //  if let requestUrl = URL(string: "https://www.udacity.com/account/auth#!/signin") {
+      //      UIApplication.shared.openURL(requestUrl)
+      //  } else {
+      //      presentError("Error opening url: " + "https://www.udacity.com/account/auth#!/signin")
+      //  }
     }
     
     
@@ -136,11 +156,11 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
     }
     
     @IBAction func logInButton(_ sender: UIButton) {
-        logInText.text = "LogIn to Udacity"
-        var userInfo = [String:String]()
-        userInfo[UdacityConstants.JSONKeys.Username] = emailTextField.text
-        userInfo[UdacityConstants.JSONKeys.Password] = passwordTextField.text
-        let jsonBody = [UdacityConstants.JSONKeys.Udacity: userInfo] //build the json body a array of dictianary
+        logInText.text = "LogIn"
+        //var userInfo = [String:String]()
+        //userInfo[UdacityConstants.JSONKeys.Username] = emailTextField.text
+        //userInfo[UdacityConstants.JSONKeys.Password] = passwordTextField.text
+        //let jsonBody = [UdacityConstants.JSONKeys.Udacity: userInfo] //build the json body a array of dictianary
         
         if emailTextField.text!.isEmpty {
             logInText.text = "Username Empty."
@@ -151,7 +171,7 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
         }
         showActivityIndicator()//starts the animation of the login indicator until we loged in!
         
-        UdacityModel.sheredInstance.requestForPOSTSession(jsonBody as [String : AnyObject] , completionHandler: {(success, errorType) -> Void in
+      /*  UdacityModel.sheredInstance.requestForPOSTSession(jsonBody as [String : AnyObject] , completionHandler: {(success, errorType) -> Void in
             if success {
                 DispatchQueue.main.async(execute: {
                     self.passwordTextField.text = ""
@@ -166,7 +186,7 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
                 
             }
             
-        })
+        })*/
     }
     
     func showActivityIndicator() {
@@ -214,6 +234,18 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
         CATransaction.commit()
     } //Error handeler
     
+    func setColorsAndBorders() {
+        myTextFields = [emailTextField,passwordTextField]
+        myButtons = [loginButton]
+        
+        for item in myTextFields {
+            item.setPreferences()
+        }
+        
+        for item in myButtons {
+            item.setPreferences()
+        }
+    }
     
 }
 

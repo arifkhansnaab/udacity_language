@@ -12,14 +12,18 @@ import UIKit
 extension UITextField {
     func setPreferences() {
         self.layer.cornerRadius = 3
-        self.layer.borderColor = UIColor(red: 0/255, green: 181/255, blue: 229/255, alpha: 1.0).cgColor
-
-        self.layer.borderWidth = 0.5
+        
+       
+        
+        self.layer.backgroundColor = UIColor.white.cgColor
+        self.layer.borderColor = UIColor(red: 0.25098040700000002, green: 0.0, blue: 0.50196081400000003, alpha: 1.0).cgColor
+        //self.layer.borderColor = UIColor.mocha
+        self.layer.borderWidth = 0
         
         let memeTextAttributes = [
             //NSStrokeColorAttributeName: UIColor.black,
             //NSForegroundColorAttributeName: UIColor.white,
-            NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 25)!,
+            NSFontAttributeName: UIFont(name: "Cochin", size: 25)!,
             //NSStrokeWidthAttributeName: -3.0,
             ] as [String : Any]
         
@@ -28,6 +32,4 @@ extension UITextField {
         //self.text = defaultText
     }
 }
-
-
 
