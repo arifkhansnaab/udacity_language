@@ -15,16 +15,19 @@ class WordTranslationViewController:  UIViewController {
     
     var myTextFields = [UITextField]()
     var myButtons = [UIButton]()
+    var myLabels = [UILabel]()
     
     var sourceSentense : String = ""
     var translatedSentence : String = ""
-    
     var wordTryCount = 0
     
     @IBOutlet weak var translatedLabel: UILabel!
     @IBOutlet weak var wrongLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var sourceSentenceTextField: UITextField!
+    @IBOutlet weak var translatedSentenceTextField: UITextField!
+    @IBOutlet weak var testButton: UIButton!
+    
     @IBAction func checkConversion(_ sender: Any) {
         
         if ( translatedSentenceTextField.text == translatedSentence ) {
@@ -46,8 +49,7 @@ class WordTranslationViewController:  UIViewController {
             updateMyWordStatus(word: sourceSentense, wordLearningStatus: wordLearningStatus.unknown)
         }
     }
-    @IBOutlet weak var translatedSentenceTextField: UITextField!
-    @IBOutlet weak var testButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,17 +62,14 @@ class WordTranslationViewController:  UIViewController {
         
         wrongLabel.isHidden = true
         rightLabel.isHidden = true
-        //translatedLabel.isHidden = true
         
         translatedSentence = getTranslatedWord(sourceWord: sourceSentense)!
     }
     
     func updateMyWordStatus(word: String, wordLearningStatus: String?) {
-        
-        
         let context = CoreDataStackManager.sharedInstance().managedObjectContext!
         let userWords = NSFetchRequest<UserWords>(entityName: "UserWords")
-        let searchQuery = NSPredicate(format: "loginId = %@ AND word = %@", argumentArray: [UserManager.GetLogedInUser(), word])
+        let searchQuery = NSPredicate(format: "loginId = %@ AND word = %@", argumentArray: [UserManager.GetLogedInUser()!, word])
         userWords.predicate = searchQuery
         
         if let result = try? context.fetch(userWords) {
@@ -90,6 +89,7 @@ class WordTranslationViewController:  UIViewController {
     func setColorsAndBorders() {
         myTextFields = [sourceSentenceTextField,translatedSentenceTextField]
         myButtons = [testButton]
+        myLabels = [translatedLabel, wrongLabel, rightLabel]
         
         for item in myTextFields {
             item.setPreferences()
@@ -98,6 +98,11 @@ class WordTranslationViewController:  UIViewController {
         for item in myButtons {
             item.setPreferences()
         }
+        
+        for item in myLabels {
+            item.setPreferences()
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

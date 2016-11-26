@@ -23,28 +23,27 @@ class LoginViewController1: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var logInText: UILabel!
     @IBOutlet weak var fbLoginView: FBSDKLoginButton!
-    
     @IBOutlet weak var userTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton1: UIButton!
+    @IBOutlet weak var faceBookButton: UIButton!
+    @IBOutlet weak var registerMeButton: UIButton!
+    @IBOutlet weak var googleButton: UIButton!
+    
+    var myTextFields = [UITextField]()
+    var myButtons = [UIButton]()
+    var dict : [String : AnyObject]!
+    
+    
     @IBAction func registerMe(_ sender: Any) {
         let oViewController = storyboard!.instantiateViewController(withIdentifier: "RegisterUserViewController") as! RegisterUserViewController
         
         navigationController!.pushViewController(oViewController, animated: true)
     }
-    @IBOutlet weak var passwordTextField: UITextField!
+    
     @IBAction func loginFacebook(_ sender: Any) {
         
     }
-    
-    var myTextFields = [UITextField]()
-    var myButtons = [UIButton]()
-    
-    @IBOutlet weak var loginButton1: UIButton!
-    
-    @IBOutlet weak var faceBookButton: UIButton!
-    
-    @IBOutlet weak var registerMeButton: UIButton!
-    @IBOutlet weak var googleButton: UIButton!
-    
     
     @IBAction func loginButton(_ sender: Any) {
         let oUser = searchUser(login: userTextField.text!,password: passwordTextField.text!)
@@ -76,63 +75,17 @@ class LoginViewController1: UIViewController, FBSDKLoginButtonDelegate {
 
         self.loginButton.delegate = self
         
-        
-       // let loginManager = FBSDKLoginManager()
-       // FBSDKLoginManager.logOut(loginManager)()
-        
-        
-        if (FBSDKAccessToken.current() != nil)
-        {
+        if (FBSDKAccessToken.current() != nil) {
             let loginManager = FBSDKLoginManager()
             FBSDKLoginManager.logOut(loginManager)()
         }
-        else
-        {
+        else {
             fbLoginView.delegate = self
             fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
             FBSDKProfile.enableUpdates(onAccessTokenChange: true)
-            
         }
-        
-      
-        
         setColorsAndBorders()
-
     }
-    
-   /* func fetchProfile1() {
-        print("fetch profile")
-        
-        
-        let parameters = ["fields": "email, first_name, last_name,  picture.type(large)"]
-        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (connection, result, error) in
-            
-            guard let resultNew = result as? [String:Any]
-            
-            let email = resultNew["email"]  as! String
-        }
-        
-      /*  let parameters = ["fields": "email, first_name, last_name, picture.type(large)"]
-        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (connection,
-                                                                                                 result, error) -> Void in
-            
-            if error != nil {
-                print(error)
-                return
-            }
-            
-            
-            guard let resultNew = result as? [String:Any]
-            
-             let email = resultNew["email"] as! String
-                print(email)
-            
-            
-            if let picture = result["picture"] as? NSDictionary, let data = picture["data"] as? NSDictionary, let url = data["url"] as? String {
-                print(url)
-            }
-        }*/
-    }*/
     
     func fetchProfile(){
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields" : "email, name, id, gender"])
@@ -164,16 +117,6 @@ class LoginViewController1: UIViewController, FBSDKLoginButtonDelegate {
             fbLoginManager.logOut()
         }
     }
-
-    
-    
-   /* func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("completed login")
-        fetchProfile()
-        returnUserData()
-    }*/
-    
-
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("User Logged In")
@@ -190,30 +133,9 @@ class LoginViewController1: UIViewController, FBSDKLoginButtonDelegate {
         else {
             // If you ask for multiple permissions at once, you
             // should check if specific permissions missing
-            if result.grantedPermissions.contains("email")
-            {
+            if result.grantedPermissions.contains("email") {
                 // Do work
-                logInText.text = "LogIn to Udacity With FB"
-                var userInfo = [String:String]()
-                userInfo[UdacityConstants.JSONKeys.access_token] = FBSDKAccessToken.current().tokenString
-                let jsonBody = [UdacityConstants.JSONKeys.facebook_mobile: userInfo] //build the json body a array of dictianary
-                
-                UdacityModel.sheredInstance.requestForPOSTSession(jsonBody as [String : AnyObject] , completionHandler: {(success, errorType) -> Void in
-                    if success {
-                        DispatchQueue.main.async(execute: {
-                            self.showActivityIndicator()//flips the condition of the indictor , stops the animation once logged in
-                            self.performSegue(withIdentifier: "NavigationSague", sender: self)
-                        })
-                    } else if errorType != nil {
-                        DispatchQueue.main.async(execute: {
-                            self.showActivityIndicator()//flips the condition of the indictor , stops the animation once logged in
-                            self.presentError(errorType!)
-                        })
-                        
-                    }
-                    
-                })
-                
+                logInText.text = "Log In"
             }
             
         }
@@ -258,8 +180,6 @@ class LoginViewController1: UIViewController, FBSDKLoginButtonDelegate {
         
         return true
     }
-    
-    var dict : [String : AnyObject]!
     
     func getFBUserData(){
         if((FBSDKAccessToken.current()) != nil){

@@ -12,15 +12,7 @@ import CoreData
 
 class WordTableViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let data:[[String]] = [["What's going on","Always respect your elders", "Glasses"],
-                           ["Book","Camel", "Cat"]]
-    
-    let subs:[[String]] = [["3. 10/31/2016","3. 10/31/2016", "3. 10/31/2016"],
-                           ["1. 10/03/2016","1. 10/03/2016", "1. 10/03/2016"]]
-    
-    let translatedData:[[String]] = [["aap kia kar rahi hain","hamesha apni baro ka adab ke je aya", "aenak"],
-                                     ["kitab", "ont", "billi"]]
-    
+  
     let headers:[String] = ["New", "Shaky"]
     
     override func viewDidLoad() {
@@ -29,7 +21,6 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return data[section].count
         
         if ( section == 0 ) {
             return getMyWordCount(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.unknown)
@@ -44,7 +35,7 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.section][indexPath.row]
+        //cell.textLabel?.text = data[indexPath.section][indexPath.row]
         
         if ( indexPath.section == 0 ) {
             cell.textLabel?.text = getMyWord(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.unknown, position: indexPath.row)
@@ -55,14 +46,18 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
             
             cell.detailTextLabel?.text = getMyWordNote(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.shaky, position: indexPath.row)
         }
+        
+        cell.textLabel?.font = UIFont(name: "Cochin", size: 25)!
         return cell
     }
     
      func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(red: 0/255, green: 181/255, blue: 229/255, alpha: 1.0) //make the background color light blue
+        header.contentView.backgroundColor = UIColor(red: 0.25098040700000002, green: 0.0, blue: 0.50196081400000003, alpha: 1.0)
+
         header.textLabel?.textColor = UIColor.white //make the text white
-        header.alpha = 0.5 //make the header transparent
+        header.textLabel?.font = UIFont(name: "Cochin", size: 25)!
+        //header.alpha = 0.5 //make the header transparent
     }
     
     func getMyWordCount(loginId: String, learningStatus: String? ) -> NSInteger {
@@ -77,12 +72,9 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
                 for object in result {
                     
                     var word = checkWordInMyWordQueue(loginId: UserManager.GetLogedInUser()!, word: (object as Words).sourceWord!)
-                    
                     if ( word == nil ) {
                         
                         let context = CoreDataStackManager.sharedInstance().managedObjectContext!
-                        
-                        
                         _ = UserWords(loginId: UserManager.GetLogedInUser()!, sourceWord: (object as Words).sourceWord!, status: wordLearningStatus.unknown, context: context)
                         
                         do {
@@ -179,15 +171,15 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
         let cell = tableView.cellForRow(at: indexPath)
         //NSLog("did select and the text is \(cell?.textLabel?.text)")
         
-        let value = data[indexPath.section][indexPath.row]
-        print("\(value)")
-        let translatedData = self.translatedData[indexPath.section][indexPath.row]
+       // let value = data[indexPath.section][indexPath.row]
+       // print("\(value)")
+       // let translatedData = self.translatedData[indexPath.section][indexPath.row]
         
         //in case of no deletion, select pin and navigate to show pictures
         let oViewController = storyboard!.instantiateViewController(withIdentifier: "WordTranslationViewController") as! WordTranslationViewController
         
         oViewController.sourceSentense = (cell?.textLabel?.text)!
-        oViewController.translatedSentence = translatedData
+        //oViewController.translatedSentence = translatedData
        
         navigationController!.pushViewController(oViewController, animated: true)
     }

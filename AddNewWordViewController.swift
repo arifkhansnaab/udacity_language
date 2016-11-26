@@ -19,6 +19,7 @@ class AddNewWordViewController: UIViewController {
     @IBOutlet weak var addNewWordButton: UIButton!
     @IBOutlet weak var addAddedNoteTextBox: UITextField!
     @IBOutlet weak var translatedRomanTextBox: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +27,6 @@ class AddNewWordViewController: UIViewController {
         setColorsAndBorders()
         
         translatedRomanTextBox.autocorrectionType = UITextAutocorrectionType.no
-        
     }
 
     @IBAction func addNewWord(_ sender: Any) {

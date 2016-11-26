@@ -42,13 +42,13 @@
 		80B912FB1DD9276F0016F887 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B912FA1DD9276F0016F887 /* RegisterUserViewController.swift */; };
 		80B912FD1DD971680016F887 /* AddNewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B912FC1DD971680016F887 /* AddNewWordViewController.swift */; };
 		80B913101DDA9C560016F887 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B9130F1DDA9C560016F887 /* CoreData.framework */; };
-		80C770281DE739D70004F7CB /* UdacityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C770271DE739D70004F7CB /* UdacityModel.swift */; };
 		80C7702A1DE73A510004F7CB /* SessionAndParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C770291DE73A510004F7CB /* SessionAndParseModel.swift */; };
 		80C7702D1DE73ADE0004F7CB /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7702C1DE73ADE0004F7CB /* ErrorExtension.swift */; };
 		80C770381DE7E03D0004F7CB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770351DE7E03D0004F7CB /* Bolts.framework */; };
 		80C770391DE7E03D0004F7CB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770361DE7E03D0004F7CB /* FBSDKCoreKit.framework */; };
 		80C7703A1DE7E03D0004F7CB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770371DE7E03D0004F7CB /* FBSDKLoginKit.framework */; };
 		80CE6AAB1DE81BCF00C8D01E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CE6AAA1DE81BCF00C8D01E /* LoginViewController.swift */; };
+		80D2A7C51DE8D9B80050D868 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D2A7C41DE8D9B80050D868 /* UILabel.swift */; };
 		80F964B61DD4190700C0F1FB /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F964B51DD4190700C0F1FB /* WordTableViewController.swift */; };
 		80F964B81DD57D1800C0F1FB /* WordTranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -124,13 +124,13 @@
 		80B9130F1DDA9C560016F887 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		80C7701A1DE54DF40004F7CB /* language-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "language-Bridging-Header.h"; sourceTree = "<group>"; };
 		80C770261DE6B5270004F7CB /* language.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = language.entitlements; sourceTree = "<group>"; };
-		80C770271DE739D70004F7CB /* UdacityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityModel.swift; sourceTree = "<group>"; };
 		80C770291DE73A510004F7CB /* SessionAndParseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionAndParseModel.swift; sourceTree = "<group>"; };
 		80C7702C1DE73ADE0004F7CB /* ErrorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		80C770351DE7E03D0004F7CB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		80C770361DE7E03D0004F7CB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		80C770371DE7E03D0004F7CB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		80CE6AAA1DE81BCF00C8D01E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		80D2A7C41DE8D9B80050D868 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		80F964B51DD4190700C0F1FB /* WordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordTableViewController.swift; path = language/WordTableViewController.swift; sourceTree = "<group>"; };
 		80F964B71DD57D1800C0F1FB /* WordTranslationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordTranslationViewController.swift; path = language/WordTranslationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,7 +248,6 @@
 				807E96B71DDEC76B00D2AE93 /* User+CoreDataProperties.swift */,
 				8046A79B1DCEC5BD00B55F52 /* Model.xcdatamodeld */,
 				800C12911DD17F8A00743458 /* CoreDataStackManager.swift */,
-				80C770271DE739D70004F7CB /* UdacityModel.swift */,
 				80C770291DE73A510004F7CB /* SessionAndParseModel.swift */,
 			);
 			name = Model;
@@ -261,6 +260,7 @@
 				8061CB7E1DD76F6600481747 /* UIButtonExtension.swift */,
 				8061CB7C1DD7677A00481747 /* Constants.swift */,
 				807E96C51DE0AB3900D2AE93 /* UtilityFunction.swift */,
+				80D2A7C41DE8D9B80050D868 /* UILabel.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -485,9 +485,9 @@
 				8046A7731DCEB1B100B55F52 /* language.xcdatamodeld in Sources */,
 				80B912FD1DD971680016F887 /* AddNewWordViewController.swift in Sources */,
 				807E96BB1DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift in Sources */,
+				80D2A7C51DE8D9B80050D868 /* UILabel.swift in Sources */,
 				807E96C41DE09ED200D2AE93 /* UserManager.swift in Sources */,
 				8046A76B1DCEB1B100B55F52 /* AppDelegate.swift in Sources */,
-				80C770281DE739D70004F7CB /* UdacityModel.swift in Sources */,
 				80C7702D1DE73ADE0004F7CB /* ErrorExtension.swift in Sources */,
 				80F964B61DD4190700C0F1FB /* WordTableViewController.swift in Sources */,
 				8061CB811DD7722300481747 /* DashboardViewController.swift in Sources */,

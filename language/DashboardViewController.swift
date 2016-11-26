@@ -14,11 +14,15 @@ class DashboardViewController:  UIViewController {
     
     var myTextFields = [UITextField]()
     var myButtons = [UIButton]()
+    var myLabels = [UILabel]()
     
     @IBOutlet weak var totalWordTextField: UITextField!
     @IBOutlet weak var knownWordsTextField: UITextField!
     @IBOutlet weak var percentTextField: UITextField!
     
+    @IBOutlet weak var totalWordLabel: UILabel!
+    @IBOutlet weak var myVoacabularyLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var competeButton: UIButton!
     
     @IBAction func addNewWord(_ sender: Any) {
@@ -76,12 +80,17 @@ class DashboardViewController:  UIViewController {
     func setColorsAndBorders() {
         myTextFields = [totalWordTextField,knownWordsTextField,percentTextField]
         myButtons = [competeButton, addNewWordButton]
+        myLabels = [totalWordLabel, myVoacabularyLabel, percentLabel]
         
         for item in myTextFields {
             item.setPreferences()
         }
         
         for item in myButtons {
+            item.setPreferences()
+        }
+        
+        for item in myLabels {
             item.setPreferences()
         }
     }

@@ -13,7 +13,9 @@ extension UITextField {
     func setPreferences() {
         self.layer.cornerRadius = 3
         
-       
+       //self.txtview.frame.size.height = 600
+        
+        self.frame.size.height = 50
         
         self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.borderColor = UIColor(red: 0.25098040700000002, green: 0.0, blue: 0.50196081400000003, alpha: 1.0).cgColor

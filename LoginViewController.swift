@@ -1,14 +1,16 @@
 //
 //  LogInViewController.swift
-//  On_The_Map_EM
+//  language
 //
-//  Created by Lauren Efron on 04/01/2016.
-//  Copyright © 2016 Eitan_Magen. All rights reserved.
-//Working version
+//  Created by Arif Khan on 11/13/16.
+//  Copyright © 2016 Snnab. All rights reserved.
+//
 
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
+import CoreData
+
 class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
     
     var appDelegate : AppDelegate!
@@ -26,48 +28,38 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
     @IBOutlet weak var facebookauth: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    // @IBAction func FBbuttonView(sender: AnyObject) {
-    //  }
     @IBOutlet weak var fbLoginView: FBSDKLoginButton!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         // Do any additional setup after loading the view, typically from a nib.
         
-        if (FBSDKAccessToken.current() != nil)
-        {
-            
+        if (FBSDKAccessToken.current() != nil) {
             let loginManager = FBSDKLoginManager()
             FBSDKLoginManager.logOut(loginManager)()
         }
-        else
-        {
+        else {
             fbLoginView.delegate = self
             fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
             FBSDKProfile.enableUpdates(onAccessTokenChange: true)
-            
         }
-        
         setColorsAndBorders()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        emailTextField.text = "arifkhan2@hotmail.com"
+        passwordTextField.text = "p"
         print ("I am back here and now should continue")
         
         if (FBSDKAccessToken.current() != nil) {
             returnUserData()
         }
-        
         return super.viewDidAppear(animated)
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("User Logged In")
+
         if ((error) != nil)
         {
             self.presentError(error! as! String)
@@ -78,33 +70,14 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
         else {
             // If you ask for multiple permissions at once, you
             // should check if specific permissions missing
-            if result.grantedPermissions.contains("email")
-            {
-                
+            if result.grantedPermissions.contains("email") {
                 // Do work
-                logInText.text = "LogIn to Udacity With FB"
+                logInText.text = "Log in using FB"
                 var userInfo = [String:String]()
-                userInfo[UdacityConstants.JSONKeys.access_token] = FBSDKAccessToken.current().tokenString
-                let jsonBody = [UdacityConstants.JSONKeys.facebook_mobile: userInfo] //build the json body a array of dictianary
+                userInfo[generalConstants.access_token] = FBSDKAccessToken.current().tokenString
+                let jsonBody = [generalConstants.facebook_mobile: userInfo] //build the json body a array of dictianary
                 
                 print(jsonBody)
-                
-                UdacityModel.sheredInstance.requestForPOSTSession(jsonBody as [String : AnyObject] , completionHandler: {(success, errorType) -> Void in
-                    if success {
-                        DispatchQueue.main.async(execute: {
-                            self.showActivityIndicator()//flips the condition of the indictor , stops the animation once logged in
-                            self.performSegue(withIdentifier: "NavigationSague", sender: self)
-                        })
-                    } else if errorType != nil {
-                        DispatchQueue.main.async(execute: {
-                            self.showActivityIndicator()//flips the condition of the indictor , stops the animation once logged in
-                            self.presentError(errorType!)
-                        })
-                        
-                    }
-                    
-                })
-                
             }
             
         }
@@ -135,16 +108,8 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
     }
     
     @IBAction func signUpButtonTouchUp(_ sender: UIButton) {
-      
         let oViewController = storyboard!.instantiateViewController(withIdentifier: "RegisterUserViewController") as! RegisterUserViewController
-        
         navigationController!.pushViewController(oViewController, animated: true)
-
-        //  if let requestUrl = URL(string: "https://www.udacity.com/account/auth#!/signin") {
-      //      UIApplication.shared.openURL(requestUrl)
-      //  } else {
-      //      presentError("Error opening url: " + "https://www.udacity.com/account/auth#!/signin")
-      //  }
     }
     
     
@@ -157,10 +122,6 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
     
     @IBAction func logInButton(_ sender: UIButton) {
         logInText.text = "LogIn"
-        //var userInfo = [String:String]()
-        //userInfo[UdacityConstants.JSONKeys.Username] = emailTextField.text
-        //userInfo[UdacityConstants.JSONKeys.Password] = passwordTextField.text
-        //let jsonBody = [UdacityConstants.JSONKeys.Udacity: userInfo] //build the json body a array of dictianary
         
         if emailTextField.text!.isEmpty {
             logInText.text = "Username Empty."
@@ -170,6 +131,31 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
             return
         }
         showActivityIndicator()//starts the animation of the login indicator until we loged in!
+        
+        
+        let oUser = searchUser(login: emailTextField.text!,password: passwordTextField.text!)
+        
+        if ( oUser == nil ) {
+            let alert = UIAlertController(title: "Alert", message: "User login failure - invalid login / password", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                //do nothing
+            }
+            
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            
+            UserManager.AddLogedInUser(loginId: emailTextField.text!)
+            
+            let oViewController = storyboard!.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+            navigationController!.pushViewController(oViewController, animated: true)
+        }
+
+        
+        
         
       /*  UdacityModel.sheredInstance.requestForPOSTSession(jsonBody as [String : AnyObject] , completionHandler: {(success, errorType) -> Void in
             if success {
@@ -188,6 +174,21 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
             
         })*/
     }
+    
+    func searchUser(login: String, password: String) -> User? {
+        let context = CoreDataStackManager.sharedInstance().managedObjectContext!
+        let user = NSFetchRequest<User>(entityName: "User")
+        let searchQuery = NSPredicate(format: "loginId = %@ AND password = %@", argumentArray: [login, password])
+        user.predicate = searchQuery
+        
+        if let result = try? context.fetch(user) {
+            for object in result {
+                return (object as User)
+            }
+        }
+        return nil
+    }
+
     
     func showActivityIndicator() {
         if activityIndicator.isHidden {
