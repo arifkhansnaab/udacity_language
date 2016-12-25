@@ -20,7 +20,7 @@
         <attribute name="loginId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Word" representedClassName=".Words" syncable="YES">
+    <entity name="Word" representedClassName=".Word" syncable="YES">
         <attribute name="convertedLanguageWord" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="convertedRomanWord" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -31,6 +31,6 @@
         <element name="User" positionX="-504" positionY="-148" width="128" height="165"/>
         <element name="UserLog" positionX="-27" positionY="-172" width="128" height="73"/>
         <element name="UserWords" positionX="-308" positionY="-198" width="128" height="105"/>
-        <element name="Word" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

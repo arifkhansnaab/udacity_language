@@ -33,4 +33,6 @@ struct generalConstants {
     static let cellWidth = 120
     static let access_token = "access_token"
     static let facebook_mobile = "facebook_mobile"
+    static let language_webapi_searchword_url = "https://language-150802.appspot.com/_ah/api/language/v1/words"
+    static let language_webapi_publishword_url = "https://language-150802.appspot.com/_ah/api/language/v1/publishWord"
 }

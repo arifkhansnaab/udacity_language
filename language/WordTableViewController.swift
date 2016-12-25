@@ -18,6 +18,24 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        downloadFlickrPhotosAndPopulateCollection()
+
+    }
+    
+    func downloadFlickrPhotosAndPopulateCollection() {
+        
+        let date = NSDate()
+        
+        LanguageApi.sharedInstance.getWords(date as Date) { (result, error) in
+            if let error = error {
+                print(error)
+            } else {
+                DispatchQueue.main.async( execute: {
+                    _ = result!
+                })
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,17 +83,17 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
         
         if ( learningStatus == wordLearningStatus.unknown ) {
             let context = CoreDataStackManager.sharedInstance().managedObjectContext!
-            let words = NSFetchRequest<Words>(entityName: "Word")
+            let words = NSFetchRequest<Word>(entityName: "Word")
             
             
             if let result = try? context.fetch(words) {
                 for object in result {
                     
-                    var word = checkWordInMyWordQueue(loginId: UserManager.GetLogedInUser()!, word: (object as Words).sourceWord!)
+                    var word = checkWordInMyWordQueue(loginId: UserManager.GetLogedInUser()!, word: (object as Word).sourceWord!)
                     if ( word == nil ) {
                         
                         let context = CoreDataStackManager.sharedInstance().managedObjectContext!
-                        _ = UserWords(loginId: UserManager.GetLogedInUser()!, sourceWord: (object as Words).sourceWord!, status: wordLearningStatus.unknown, context: context)
+                        _ = UserWords(loginId: UserManager.GetLogedInUser()!, sourceWord: (object as Word).sourceWord!, status: wordLearningStatus.unknown, context: context)
                         
                         do {
                             try context.save()

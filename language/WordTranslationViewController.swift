@@ -112,7 +112,7 @@ class WordTranslationViewController:  UIViewController {
     
     func getTranslatedWord(sourceWord : String) -> String? {
         let context = CoreDataStackManager.sharedInstance().managedObjectContext!
-        let words = NSFetchRequest<Words>(entityName: "Word")
+        let words = NSFetchRequest<Word>(entityName: "Word")
         
         
         let searchQuery = NSPredicate(format: "sourceWord = %@", argumentArray: [sourceWord])
@@ -121,7 +121,7 @@ class WordTranslationViewController:  UIViewController {
         
         if let result = try? context.fetch(words) {
             for object in result {
-                    return (object as Words).convertedRomanWord
+                    return (object as Word).convertedRomanWord
             }
         }
         return nil

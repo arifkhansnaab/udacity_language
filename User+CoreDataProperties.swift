@@ -31,10 +31,10 @@ extension User {
 extension User {
 
     @objc(addRelationshipObject:)
-    @NSManaged public func addToRelationship(_ value: Words)
+    @NSManaged public func addToRelationship(_ value: Word)
 
     @objc(removeRelationshipObject:)
-    @NSManaged public func removeFromRelationship(_ value: Words)
+    @NSManaged public func removeFromRelationship(_ value: Word)
 
     @objc(addRelationship:)
     @NSManaged public func addToRelationship(_ values: NSSet)

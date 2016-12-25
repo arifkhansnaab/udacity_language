@@ -28,6 +28,22 @@ class AddNewWordViewController: UIViewController {
         
         translatedRomanTextBox.autocorrectionType = UITextAutocorrectionType.no
     }
+    
+    func addWordToCloud() {
+        
+        let jsonWord = JsonWord(sourceWord: (originalWordTextBox.text)!, translatedWord: (translatedRomanTextBox.text)!, language: "Urdu", publishedDate: UtilityFunction.getConvertedDateString()!, publishedBy: UserManager.GetLogedInUser()!)
+        
+        LanguageApi.sharedInstance.postWord(jsonWord as JsonWord) { (result, error) in
+            if let error = error {
+                print(error)
+            } else {
+                DispatchQueue.main.async( execute: {
+                   print ("added")
+                })
+            }
+        }
+
+    }
 
     @IBAction func addNewWord(_ sender: Any) {
         
@@ -41,9 +57,12 @@ class AddNewWordViewController: UIViewController {
             return
         }
         
+        addWordToCloud()
+        return
+        
         let context = CoreDataStackManager.sharedInstance().managedObjectContext!
 
-        _ = Words(source: originalWordTextBox.text!, romanWord: translatedRomanTextBox.text!, context: context)
+        _ = Word(source: originalWordTextBox.text!, romanWord: translatedRomanTextBox.text!, context: context)
         
         do {
             try context.save()

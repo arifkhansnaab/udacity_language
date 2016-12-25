@@ -19,6 +19,10 @@ class UtilityFunction {
         }
         
         return 0.description
-        
+    }
+    
+    static func getConvertedDateString() -> String? {
+        let currentDateTime = Date()
+        return currentDateTime.description
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import XCTest
 @testable import language
 
 class languageTests: XCTestCase {
@@ -21,9 +22,32 @@ class languageTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testWordWebAPICall() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let expect = expectation(description: "calling web api")
+        
+        
+        let jsonWord = JsonWord(sourceWord: "Sky", translatedWord: "Asman", language: "Urdu", publishedDate: "12/14/2016", publishedBy: "arif.khan@snnab.com")
+        
+        LanguageApi.sharedInstance.postWord(jsonWord as JsonWord) { (result, error) in
+            if let error = error {
+               
+                print(error)
+                 expect.fulfill()
+            } else {
+                DispatchQueue.main.async( execute: {
+                    print ("added")
+                    expect.fulfill()
+                })
+            }
+        }
+        
+        waitForExpectations(timeout: 100) { (error) in
+            XCTAssertNil(error, "Test timed out. \(error?.localizedDescription)")
+
+        }
     }
     
     func testPerformanceExample() {

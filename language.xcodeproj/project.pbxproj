@@ -24,6 +24,8 @@
 		805BF2BD1DE7E1EE00BAB487 /* FBSDKCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770361DE7E03D0004F7CB /* FBSDKCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		805BF2BE1DE7E1EE00BAB487 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770371DE7E03D0004F7CB /* FBSDKLoginKit.framework */; };
 		805BF2BF1DE7E1EE00BAB487 /* FBSDKLoginKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 80C770371DE7E03D0004F7CB /* FBSDKLoginKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		805EBB021DFCA242002654F1 /* LanguageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805EBB011DFCA242002654F1 /* LanguageApi.swift */; };
+		805EBB051DFCAE70002654F1 /* JsonWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805EBB041DFCAE70002654F1 /* JsonWord.swift */; };
 		8061CB7B1DD7666D00481747 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */; };
 		8061CB7D1DD7677A00481747 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7C1DD7677A00481747 /* Constants.swift */; };
 		8061CB7F1DD76F6600481747 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8061CB7E1DD76F6600481747 /* UIButtonExtension.swift */; };
@@ -32,8 +34,8 @@
 		807E96B91DDEC76B00D2AE93 /* UserLog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B11DDEC76B00D2AE93 /* UserLog+CoreDataProperties.swift */; };
 		807E96BA1DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B21DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift */; };
 		807E96BB1DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B31DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift */; };
-		807E96BC1DDEC76B00D2AE93 /* Words+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B41DDEC76B00D2AE93 /* Words+CoreDataClass.swift */; };
-		807E96BD1DDEC76B00D2AE93 /* Words+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B51DDEC76B00D2AE93 /* Words+CoreDataProperties.swift */; };
+		807E96BC1DDEC76B00D2AE93 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B41DDEC76B00D2AE93 /* Word+CoreDataClass.swift */; };
+		807E96BD1DDEC76B00D2AE93 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B51DDEC76B00D2AE93 /* Word+CoreDataProperties.swift */; };
 		807E96BE1DDEC76B00D2AE93 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B61DDEC76B00D2AE93 /* User+CoreDataClass.swift */; };
 		807E96BF1DDEC76B00D2AE93 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96B71DDEC76B00D2AE93 /* User+CoreDataProperties.swift */; };
 		807E96C41DE09ED200D2AE93 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E96C31DE09ED200D2AE93 /* UserManager.swift */; };
@@ -104,6 +106,8 @@
 		8046A78D1DCEB1B100B55F52 /* languageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = languageUITests.swift; sourceTree = "<group>"; };
 		8046A78F1DCEB1B100B55F52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8046A79C1DCEC5BD00B55F52 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		805EBB011DFCA242002654F1 /* LanguageApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageApi.swift; sourceTree = "<group>"; };
+		805EBB041DFCAE70002654F1 /* JsonWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonWord.swift; sourceTree = "<group>"; };
 		8061CB7A1DD7666D00481747 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtension.swift; path = language/UITextFieldExtension.swift; sourceTree = "<group>"; };
 		8061CB7C1DD7677A00481747 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = language/Constants.swift; sourceTree = "<group>"; };
 		8061CB7E1DD76F6600481747 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonExtension.swift; path = language/UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -112,8 +116,8 @@
 		807E96B11DDEC76B00D2AE93 /* UserLog+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserLog+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		807E96B21DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserWords+CoreDataClass.swift"; sourceTree = "<group>"; };
 		807E96B31DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserWords+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		807E96B41DDEC76B00D2AE93 /* Words+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Words+CoreDataClass.swift"; sourceTree = "<group>"; };
-		807E96B51DDEC76B00D2AE93 /* Words+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Words+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		807E96B41DDEC76B00D2AE93 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
+		807E96B51DDEC76B00D2AE93 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		807E96B61DDEC76B00D2AE93 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		807E96B71DDEC76B00D2AE93 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		807E96C31DE09ED200D2AE93 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				800C12941DD1803A00743458 /* FlickrApi.swift */,
+				805EBB011DFCA242002654F1 /* LanguageApi.swift */,
 			);
 			name = Api;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 		8046A75E1DCEB1B100B55F52 = {
 			isa = PBXGroup;
 			children = (
+				805EBB031DFCADA6002654F1 /* JsonObject */,
 				80C7702B1DE73ABE0004F7CB /* Delegate */,
 				807E96C71DE0BA6900D2AE93 /* View */,
 				807E96C21DE09C2F00D2AE93 /* HelperClasses */,
@@ -242,8 +248,8 @@
 				807E96B11DDEC76B00D2AE93 /* UserLog+CoreDataProperties.swift */,
 				807E96B21DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift */,
 				807E96B31DDEC76B00D2AE93 /* UserWords+CoreDataProperties.swift */,
-				807E96B41DDEC76B00D2AE93 /* Words+CoreDataClass.swift */,
-				807E96B51DDEC76B00D2AE93 /* Words+CoreDataProperties.swift */,
+				807E96B41DDEC76B00D2AE93 /* Word+CoreDataClass.swift */,
+				807E96B51DDEC76B00D2AE93 /* Word+CoreDataProperties.swift */,
 				807E96B61DDEC76B00D2AE93 /* User+CoreDataClass.swift */,
 				807E96B71DDEC76B00D2AE93 /* User+CoreDataProperties.swift */,
 				8046A79B1DCEC5BD00B55F52 /* Model.xcdatamodeld */,
@@ -251,6 +257,14 @@
 				80C770291DE73A510004F7CB /* SessionAndParseModel.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		805EBB031DFCADA6002654F1 /* JsonObject */ = {
+			isa = PBXGroup;
+			children = (
+				805EBB041DFCAE70002654F1 /* JsonWord.swift */,
+			);
+			name = JsonObject;
 			sourceTree = "<group>";
 		};
 		8061CB821DD7BC8700481747 /* Utility */ = {
@@ -489,20 +503,22 @@
 				807E96C41DE09ED200D2AE93 /* UserManager.swift in Sources */,
 				8046A76B1DCEB1B100B55F52 /* AppDelegate.swift in Sources */,
 				80C7702D1DE73ADE0004F7CB /* ErrorExtension.swift in Sources */,
+				805EBB021DFCA242002654F1 /* LanguageApi.swift in Sources */,
 				80F964B61DD4190700C0F1FB /* WordTableViewController.swift in Sources */,
 				8061CB811DD7722300481747 /* DashboardViewController.swift in Sources */,
 				807E96B81DDEC76B00D2AE93 /* UserLog+CoreDataClass.swift in Sources */,
 				800C12921DD17F8A00743458 /* CoreDataStackManager.swift in Sources */,
 				80C7702A1DE73A510004F7CB /* SessionAndParseModel.swift in Sources */,
 				807E96BA1DDEC76B00D2AE93 /* UserWords+CoreDataClass.swift in Sources */,
+				805EBB051DFCAE70002654F1 /* JsonWord.swift in Sources */,
 				80B912FB1DD9276F0016F887 /* RegisterUserViewController.swift in Sources */,
 				8061CB7F1DD76F6600481747 /* UIButtonExtension.swift in Sources */,
 				8046A79D1DCEC5BD00B55F52 /* Model.xcdatamodeld in Sources */,
-				807E96BC1DDEC76B00D2AE93 /* Words+CoreDataClass.swift in Sources */,
+				807E96BC1DDEC76B00D2AE93 /* Word+CoreDataClass.swift in Sources */,
 				807E96B91DDEC76B00D2AE93 /* UserLog+CoreDataProperties.swift in Sources */,
 				807E96BF1DDEC76B00D2AE93 /* User+CoreDataProperties.swift in Sources */,
 				800C12951DD1803A00743458 /* FlickrApi.swift in Sources */,
-				807E96BD1DDEC76B00D2AE93 /* Words+CoreDataProperties.swift in Sources */,
+				807E96BD1DDEC76B00D2AE93 /* Word+CoreDataProperties.swift in Sources */,
 				807E96BE1DDEC76B00D2AE93 /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,6 +602,11 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/Arif/Documents/Projects/Snnab/Education/Udacity_ios/00,
+					Project,
+					Subsmission/language,
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -635,6 +656,11 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					/Users/Arif/Documents/Projects/Snnab/Education/Udacity_ios/00,
+					Project,
+					Subsmission/language,
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -700,6 +726,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GJT8TMHRBN;
+				FRAMEWORK_SEARCH_PATHS = /Users/Arif/Documents/Projects/Snnab/Education/Udacity_ios/Reference;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Users/Arif/Documents/Projects/Snnab/Education/Udacity_ios/Reference;
 				INFOPLIST_FILE = languageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snnab.languageTests;
@@ -715,6 +743,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GJT8TMHRBN;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Users/Arif/Documents/Projects/Snnab/Education/Udacity_ios/Reference;
 				INFOPLIST_FILE = languageTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snnab.languageTests;

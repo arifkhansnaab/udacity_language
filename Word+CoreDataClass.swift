@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-public class Words: NSManagedObject {
+public class Word: NSManagedObject {
     
     convenience init(source: String, romanWord: String, context : NSManagedObjectContext){
         
@@ -21,13 +21,10 @@ public class Words: NSManagedObject {
         if let ent = NSEntityDescription.entity(forEntityName: "Word",
                                                 in: context){
             
-            
             self.init(entity: ent, insertInto: context)
             self.sourceWord = source
             self.convertedRomanWord = romanWord
             self.createDate = NSDate()
-            
-                     
         }
         else {
             fatalError("Unable to find Entity User!")
