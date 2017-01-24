@@ -102,7 +102,6 @@ class WordTranslationViewController:  UIViewController {
         for item in myLabels {
             item.setPreferences()
         }
-        
     }
     
     override func didReceiveMemoryWarning() {

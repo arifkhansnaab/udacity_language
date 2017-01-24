@@ -36,3 +36,20 @@ struct generalConstants {
     static let language_webapi_searchword_url = "https://language-150802.appspot.com/_ah/api/language/v1/words"
     static let language_webapi_publishword_url = "https://language-150802.appspot.com/_ah/api/language/v1/publishWord"
 }
+
+struct wordConstant {
+    static let sourceWord = "sourceWord"
+    static let translatedWord = "translatedWord"
+    static let language = "language"
+    static let publishedDate = "publishedDate"
+    static let publishedBy = "publishedBy"
+}
+
+struct colorFontConstant {
+    static let redValue : CGFloat = 0.25098040700000002
+    static let greenValue : CGFloat = 0.0
+    static let blueValue : CGFloat = 0.50196081400000003
+    static let alphaValue : CGFloat = 1.0
+    static let fontName = "Cochin"
+    static let fontSize : CGFloat = 25
+}

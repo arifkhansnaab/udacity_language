@@ -47,7 +47,7 @@ class DashboardViewController:  UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         setColorsAndBorders()
-        downloadFlickrPhotosAndPopulateCollection()
+        downloadGoogleWordAndPopulateCollection()
         totalWordTextField.isUserInteractionEnabled = false
     }
     
@@ -81,8 +81,7 @@ class DashboardViewController:  UIViewController {
     }
 
     
-    func downloadFlickrPhotosAndPopulateCollection() {
-        
+    func downloadGoogleWordAndPopulateCollection() {
         let date = NSDate()
         
         LanguageApi.sharedInstance.getWords(date as Date) { (result, error) in
@@ -91,6 +90,7 @@ class DashboardViewController:  UIViewController {
             } else {
                 DispatchQueue.main.async( execute: {
                     self.Words = result!
+                    self.syncLocalFromCloud()
                     self.addWordFromClouldToLocal()
                     self.totalWordTextField.text = self.getTotalWordCount().description
                     self.knownWordsTextField.text = self.getMyWordCount(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.mastered).description
@@ -102,7 +102,6 @@ class DashboardViewController:  UIViewController {
     }
     
     func addWordFromClouldToLocal() {
-        
         let context = CoreDataStackManager.sharedInstance().managedObjectContext!
         
         for oWord in self.Words {
@@ -120,6 +119,65 @@ class DashboardViewController:  UIViewController {
         }
         }
     }
+    
+    
+    func IsWordInCloud(word: String) -> Bool {
+         for oWord in self.Words {
+            if ( oWord.sourceWord == word ) {
+                return true;
+            }
+        }
+        return false
+    }
+    
+    func syncLocalFromCloud() {
+        syncLocalFromCloudWords()
+        syncLocalFromCloudUserWords()
+    }
+    
+    func syncLocalFromCloudUserWords() {
+        
+        let context = CoreDataStackManager.sharedInstance().managedObjectContext!
+        let userWords = NSFetchRequest<UserWords>(entityName: "UserWords")
+        
+        let searchQuery = NSPredicate(format: "loginId = %@", argumentArray: [UserManager.GetLogedInUser()!])
+        userWords.predicate = searchQuery
+        
+        if let result = try? context.fetch(userWords) {
+            for object in result {
+                if ( IsWordInCloud(word: (object as UserWords).word!) == false ) {
+                    context.delete(object)
+                }
+            }
+        }
+        do {
+            try context.save()
+        }
+        catch let error as NSError {
+            print (error)
+        }
+    }
+    
+    func syncLocalFromCloudWords() {
+        
+        let context = CoreDataStackManager.sharedInstance().managedObjectContext!
+        let word = NSFetchRequest<Word>(entityName: "Word")
+        if let result = try? context.fetch(word) {
+            for object in result {
+                if ( IsWordInCloud(word: (object as Word).sourceWord!) == false ) {
+                    context.delete(object)
+                }
+            }
+        }
+        
+        do {
+            try context.save()
+        }
+        catch let error as NSError {
+            print (error)
+        }
+    }
+
     
     func getMyWordCount(loginId: String, learningStatus: String? ) -> NSInteger {
         let context = CoreDataStackManager.sharedInstance().managedObjectContext!

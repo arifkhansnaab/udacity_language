@@ -31,12 +31,26 @@ class RegisterUserViewController: UIViewController, UINavigationControllerDelega
         setColorsAndBorders()
         
         //Set the text field delegate, so that return key bring down the keyboard
-        loginTextBox.delegate = self
-        passwordTextBox.delegate = self
-        reenterPasswordTextBox.delegate = self
-        firstNameTextBox.delegate = self
-        lastNameTextBox.delegate = self
         displayNameTextBox.delegate = self
+        lastNameTextBox.delegate = self
+        firstNameTextBox.delegate = self
+        loginTextBox.delegate = self
+        reenterPasswordTextBox.delegate = self
+        passwordTextBox.delegate = self
+    }
+    
+    override func  viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        subscribeToKeyboardNotifications()
+    }
+    
+    
+    @IBAction func loginTextChanged(_ sender: Any) {
+        let arr = UtilityFunction.getFirstLastFromEmail(email: loginTextBox.text!)
+        firstNameTextBox.text = arr[0]
+        lastNameTextBox.text = arr[1]
+        displayNameTextBox.text = arr[0].description.appending(" ")
+        displayNameTextBox.text = displayNameTextBox.text?.appending(arr[1].description)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,13 +58,14 @@ class RegisterUserViewController: UIViewController, UINavigationControllerDelega
         subscribeToKeyboardNotifications()
     }
     
-   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func registerUser(_ sender: Any) {
+        
+        view.frame.origin.y = 0
         
         let context = CoreDataStackManager.sharedInstance().managedObjectContext!
         
@@ -64,6 +79,11 @@ class RegisterUserViewController: UIViewController, UINavigationControllerDelega
             return
         }
         
+        if ( UtilityFunction.isValidEmail(testStr: loginTextBox.text!) == false) {
+            errorLabel.text = "invalid email - login id must be a valid email"
+            return
+        }
+        
         _ = User(login: loginTextBox.text!, pass: passwordTextBox.text!, first: firstNameTextBox.text!, last: lastNameTextBox.text!, display: displayNameTextBox.text!, mode: authenticationStatus.custom, context: context)
         
         do {
@@ -74,7 +94,7 @@ class RegisterUserViewController: UIViewController, UINavigationControllerDelega
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
                 UIAlertAction in
                 
-                let oViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController1
+                let oViewController = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! FBLoginViewController
                 self.navigationController!.pushViewController(oViewController, animated: true)
             }
             
@@ -90,6 +110,7 @@ class RegisterUserViewController: UIViewController, UINavigationControllerDelega
     
     func registerUser() {
     }
+    
     
     func setColorsAndBorders() {
         myTextFields = [displayNameTextBox,lastNameTextBox,firstNameTextBox,loginTextBox,passwordTextBox,reenterPasswordTextBox]
@@ -115,13 +136,23 @@ class RegisterUserViewController: UIViewController, UINavigationControllerDelega
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if (displayNameTextBox.isFirstResponder || lastNameTextBox.isFirstResponder) {
-            view.frame.origin.y = -getKeyboardHeight(notification: notification)
+        
+        if (UIApplication.shared.statusBarOrientation.isPortrait ) {
+            if (displayNameTextBox.isFirstResponder ) {
+                view.frame.origin.y = -getKeyboardHeight(notification: notification)
+            } else if (firstNameTextBox.isFirstResponder || lastNameTextBox.isFirstResponder) {
+                view.frame.origin.y = -getKeyboardHeight(notification: notification)+(2*firstNameTextBox.frame.height)
+            }
+            else {
+                view.frame.origin.y = 0
+            }
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if (displayNameTextBox.isFirstResponder || lastNameTextBox.isFirstResponder){
+        if (
+            loginTextBox.isFirstResponder || passwordTextBox.isFirstResponder || reenterPasswordTextBox.isFirstResponder ||
+            firstNameTextBox.isFirstResponder || displayNameTextBox.isFirstResponder || lastNameTextBox.isFirstResponder){
             view.frame.origin.y = 0
         }
     }

@@ -1,5 +1,5 @@
 //
-//  LogInViewController.swift
+//  FBLoginViewController.swift
 //  language
 //
 //  Created by Arif Khan on 11/13/16.
@@ -11,10 +11,10 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import CoreData
 
-class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
+class FBLoginViewController: UIViewController ,FBSDKLoginButtonDelegate, UITextFieldDelegate {
     
     var appDelegate : AppDelegate!
-    static let sheredInstance = LogInViewController()
+    static let sheredInstance = FBLoginViewController()
     
     var session: URLSession!
     var myTextFields = [UITextField]()
@@ -24,7 +24,7 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var logInText: UILabel!
+    @IBOutlet weak var loginDisplayText: UILabel!
     @IBOutlet weak var facebookauth: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -32,6 +32,10 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set the text field delegate, so that return key bring down the keyboard
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -48,13 +52,16 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        emailTextField.text = "arifkhan2@hotmail.com"
-        passwordTextField.text = "p"
-        print ("I am back here and now should continue")
+        
+        //Used during testing
+        //emailTextField.text = "arifkhan2@hotmail.com"
+        //passwordTextField.text = "p"
         
         if (FBSDKAccessToken.current() != nil) {
             returnUserData()
         }
+        
+
         return super.viewDidAppear(animated)
     }
     
@@ -72,7 +79,7 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
             // should check if specific permissions missing
             if result.grantedPermissions.contains("email") {
                 // Do work
-                logInText.text = "Log in using FB"
+                loginDisplayText.text = "Log in using FB"
                 var userInfo = [String:String]()
                 userInfo[generalConstants.access_token] = FBSDKAccessToken.current().tokenString
                 let jsonBody = [generalConstants.facebook_mobile: userInfo] //build the json body a array of dictianary
@@ -118,16 +125,18 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
         emailTextField.text = ""
         passwordTextField.text = ""
         activityIndicator.isHidden = true
+        
+        subscribeToKeyboardNotifications()
     }
     
     @IBAction func logInButton(_ sender: UIButton) {
-        logInText.text = "LogIn"
+        loginDisplayText.text = "LogIn"
         
         if emailTextField.text!.isEmpty {
-            logInText.text = "Username Empty."
+            loginDisplayText.text = "Username Empty."
             return
         } else if passwordTextField.text!.isEmpty {
-            logInText.text = "Password Empty."
+            loginDisplayText.text = "Password Empty."
             return
         }
         showActivityIndicator()//starts the animation of the login indicator until we loged in!
@@ -157,23 +166,7 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
         
         
         
-      /*  UdacityModel.sheredInstance.requestForPOSTSession(jsonBody as [String : AnyObject] , completionHandler: {(success, errorType) -> Void in
-            if success {
-                DispatchQueue.main.async(execute: {
-                    self.passwordTextField.text = ""
-                    self.showActivityIndicator()//flips the condition of the indictor , stops the animation once logged in
-                    self.performSegue(withIdentifier: "NavigationSague", sender: self)
-                })
-            } else if errorType != nil {
-                DispatchQueue.main.async(execute: {
-                    self.showActivityIndicator()//flips the condition of the indictor , stops the animation once logged in
-                    self.presentError(errorType!)
-                })
-                
-            }
-            
-        })*/
-    }
+          }
     
     func searchUser(login: String, password: String) -> User? {
         let context = CoreDataStackManager.sharedInstance().managedObjectContext!
@@ -246,6 +239,43 @@ class LogInViewController: UIViewController ,FBSDKLoginButtonDelegate {
         for item in myButtons {
             item.setPreferences()
         }
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterUserViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterUserViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if (UIApplication.shared.statusBarOrientation.isPortrait ) {
+            if (emailTextField.isFirstResponder || passwordTextField.isFirstResponder) {
+              
+                view.frame.origin.y = 0
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if ( emailTextField.isFirstResponder || passwordTextField.isFirstResponder ){
+            view.frame.origin.y = 0
+        }
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

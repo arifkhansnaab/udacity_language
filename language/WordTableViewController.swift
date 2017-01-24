@@ -12,7 +12,7 @@ import CoreData
 
 class WordTableViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-  
+    //Two types of words categories
     let headers:[String] = ["New", "Shaky"]
     
     override func viewDidLoad() {
@@ -65,26 +65,25 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
             cell.detailTextLabel?.text = getMyWordNote(loginId: UserManager.GetLogedInUser()!, learningStatus: wordLearningStatus.shaky, position: indexPath.row)
         }
         
-        cell.textLabel?.font = UIFont(name: "Cochin", size: 25)!
+        cell.textLabel?.font = UIFont(name: colorFontConstant.fontName, size: colorFontConstant.fontSize)!
         return cell
     }
     
      func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(red: 0.25098040700000002, green: 0.0, blue: 0.50196081400000003, alpha: 1.0)
+        
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a
+        
+        header.contentView.backgroundColor = UIColor(red: colorFontConstant.redValue, green: colorFontConstant.greenValue, blue: colorFontConstant.blueValue, alpha: colorFontConstant.alphaValue)
 
         header.textLabel?.textColor = UIColor.white //make the text white
-        header.textLabel?.font = UIFont(name: "Cochin", size: 25)!
-        //header.alpha = 0.5 //make the header transparent
+        header.textLabel?.font = UIFont(name: colorFontConstant.fontName, size: colorFontConstant.fontSize)!
     }
     
     func getMyWordCount(loginId: String, learningStatus: String? ) -> NSInteger {
         
-        
         if ( learningStatus == wordLearningStatus.unknown ) {
             let context = CoreDataStackManager.sharedInstance().managedObjectContext!
             let words = NSFetchRequest<Word>(entityName: "Word")
-            
             
             if let result = try? context.fetch(words) {
                 for object in result {
@@ -101,9 +100,7 @@ class WordTableViewController:  UIViewController, UITableViewDataSource, UITable
                         } catch let error as NSError {
                             print (error)
                         }
-                        
                     }
-                    
                 }
             }
 

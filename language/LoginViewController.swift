@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class LoginViewController1: UIViewController, FBSDKLoginButtonDelegate {
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -19,7 +19,6 @@ class LoginViewController1: UIViewController, FBSDKLoginButtonDelegate {
         button.readPermissions = ["email"]
         return button
     }()
-    
     
     @IBOutlet weak var logInText: UILabel!
     @IBOutlet weak var fbLoginView: FBSDKLoginButton!
@@ -119,9 +118,7 @@ class LoginViewController1: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("User Logged In")
-        
-        //print (result)
+
         if ((error) != nil)
         {
             print (error.localizedDescription)
@@ -149,8 +146,6 @@ class LoginViewController1: UIViewController, FBSDKLoginButtonDelegate {
             activityIndicator.stopAnimating()
             activityIndicator.isHidden = true
             activityIndicator.hidesWhenStopped = true
-            
-            
         }
     }
     
